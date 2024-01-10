@@ -56,6 +56,7 @@ passport.deserializeUser(async (id, done) => {
 ///////////////////////////////////////////////////////////////////////////
 
 let items = [];
+let currentListTitle = "My To Do List";
 
 ///////////////////////////////////////////////////////////////////////////
 
@@ -75,7 +76,7 @@ app.get("/mylist", async (req, res) => {
       const userItems = result.rows;
 
       res.render("list.ejs", {
-        listTitle: "Today",
+        listTitle: currentListTitle,
         listItems: userItems,
       });
     } else {
@@ -130,6 +131,21 @@ app.post("/edit", async (req, res) => {
       item,
       id,
     ]);
+    res.redirect("/mylist");
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+app.post("/editListTitle", async (req, res) => {
+  const updatedListTitle = req.body.updatedListTitle;
+  const listId = req.body.listId;
+
+  try {
+    const result = await db.query(
+      "UPDATE lists SET list_title = $1 WHERE id = $2",
+      [updatedListTitle, listId]
+    );
     res.redirect("/mylist");
   } catch (error) {
     console.log(error);
