@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>To Do List</title>
+    <script
+      src="https://kit.fontawesome.com/aca8370119.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="styles/main.css" />
     <link
       rel="stylesheet"
@@ -11,30 +15,49 @@
     />
   </head>
   <body>
-    <header><%- include('partials/header') %></header>
-    <div class="container mt-5">
-      <h3>Sign Up</h3>
+    <%- include("partials/banner.ejs") %>
 
-      <div class="row">
-        <div class="col-sm-8">
-          <div class="card">
-            <div class="card-body">
-              <form action="/signup" method="POST">
-                <div class="form-group">
-                  <label for="email">Email:</label>
-                  <input type="email" class="form-control" name="username" />
-                </div>
-                <div class="form-group">
-                  <label for="password">Password:</label>
-                  <input type="password" class="form-control" name="password" />
-                </div>
-                <button class="nav-link active signup" type="submit">
-                  Sign Up
-                </button>
-              </form>
+    <div class="container mt-5 d-flex flex-column justify-content-center w-25">
+      <div class="card">
+        <div class="card-body">
+          <form action="/signup" method="POST">
+            <div class="form-group">
+              <label for="email">Email:</label>
+              <input type="email" class="form-control" name="username" />
             </div>
-          </div>
+            <div class="form-group mt-3">
+              <label for="password">Password:</label>
+              <input type="password" class="form-control" name="password" />
+            </div>
+
+            <div class="justify-content-end mt-3 d-flex flex-row">
+              <a
+                class="btn btn-outline-secondary btn-block btn-social btn-google mt-2 d-flex align-items-center"
+                href="/auth/google"
+                role="button"
+              >
+                <i class="fab fa-google"></i>
+                <div class="ps-3">Sign Up with Google</div>
+              </a>
+
+              <button class="nav-link active signup ms-3" type="submit">
+                Sign Up
+              </button>
+            </div>
+          </form>
         </div>
+      </div>
+
+      <div class="mt-5 d-flex flex-column align-items-center">
+        <p>Already have an account? Sign in below.</p>
+        <a href="/login"
+          ><button
+            class="nav-link active signup ms-auto me-3 mt-3"
+            type="button"
+          >
+            Sign In
+          </button></a
+        >
       </div>
     </div>
     <footer class="footer"><%- include("partials/footer.ejs") %></footer>

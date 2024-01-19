@@ -7,6 +7,10 @@ body {
   color: #92b4ec;
 }
 
+a {
+  text-decoration: none;
+}
+
 h1 {
   padding: 10px;
   color: #92b4ec;
@@ -147,4 +151,31 @@ footer {
   align-items: flex-end;
   flex-shrink: 0;
   padding: 10px;
+}
+
+#banner {
+  background-color: #92b4ec;
+  height: auto;
+  padding: 100px 100px;
+}
+
+#banner-h1,
+h4 {
+  color: #f1f1f1;
+  text-align: center;
+  text-shadow: 2px 2px 4px #000000;
+}
+
+#bannerimage {
+  width: 100%;
+  background-image: url("../images/banner.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 450px;
+  background-color: #92b4ec;
+  background-position: center;
+}
+
+span {
+  font-family: "Gochi Hand", cursive;
 }

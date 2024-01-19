@@ -13,11 +13,26 @@
   <body>
   
     <header class="header">
-      <%- include("partials/header_signed_in.ejs") %>
+      <%- include("partials/header.ejs") %>
     </header>
 
     <div class="box" id="heading">
-      <h1 id="listTitle"><%= listTitle %></h1>
+      <% lists.forEach(function(list) { %>
+        <form action="/editListTitle" method="post">
+       
+        <h1 id="title<%=list.id%>"><%= list.list_title %></h1>
+
+        <input type="hidden" name="listId" value="<%= list.id %>">
+        <input id="input<%=list.id%>" type="text" name="listTitle" value="<%= list.list_title %>" autocomplete="off"
+          autofocus="true" hidden="true" />
+        <button id="done<%=list.id%>" class="edit" type="submit" hidden><img class="icon"
+            src="../images/check.svg" alt="tick image"></button>
+      </form>
+      <button id="edit<%=list.id%>" class="edit" onclick="handler('<%=list.id%>', event)"><img class="icon"
+          src="../images/pencil-square.svg" alt="pencil image"></button>
+        </form>
+      
+        <% }); %>
 
     </div>
 
@@ -33,7 +48,7 @@
           />
           <p id="title<%=item.id%>"><%= item.title %></p>
         
-        <input type="hidden" name="listName" value="<%=  listTitle %>" />
+        <input type="hidden" name="listName" value="<%=  lists %>" />
       </form>
 
       <form class="edit" action="/edit" method="post">
@@ -59,15 +74,20 @@
           required
         />
       
+        <input type="hidden" name="listId" value="<%= lists[0].id %>" />
+
         <button
           type="submit"
           class="add-btn"
           name="list"
-          value="<%= listTitle %>"
+          value="<%= lists %>"
         >
           +
         </button>
       </form>
+
+      <!-- Create newList input/button -->
+
     </div>
     <footer class="footer"><%- include("partials/footer.ejs") %></footer>
 

@@ -5,6 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>EJS Partials</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap"
+      rel="stylesheet"
+    />
+
     <link rel="stylesheet" href="styles/main.css" />
   </head>
   <body>
@@ -12,23 +19,18 @@
       <header
         class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom"
       >
-        <a
-          href="/"
+        <div
           class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none"
         >
-          <span class="fs-4"> To Do List</span>
-        </a>
+          <span class="fs-4"> TaskMaster</span>
+        </div>
 
         <ul class="nav nav-pills">
           <li class="nav-item">
-            <a href="/" class="nav-link active" aria-current="page">Home</a>
+            <a href="/mylist" class="nav-link active">My List</a>
           </li>
           <li class="nav-item">
-            <a href="/mylist" class="nav-link">My List</a>
-          </li>
-          <li class="nav-item"><a href="/login" class="nav-link">Login</a></li>
-          <li class="nav-item">
-            <a href="/signup" class="nav-link">Sign Up</a>
+            <a href="/logout" class="nav-link">Sign Out</a>
           </li>
         </ul>
       </header>
